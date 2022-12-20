@@ -2,6 +2,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="/Users/zeeshan/ClipboardAssessment">
-    <classes/>
+    
+        <classes>
+        <class name="testCases.TC_Amazon_ProductSelection"/>
+        </classes>
+
     </test>
 </suite>
