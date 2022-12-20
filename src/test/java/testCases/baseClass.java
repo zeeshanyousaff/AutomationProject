@@ -1,7 +1,9 @@
-package com.amazon.testCases;
+package testCases;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 
 import java.util.concurrent.TimeUnit;
 
@@ -10,6 +12,7 @@ public class baseClass {
 
     public static WebDriver driver;
 
+    @BeforeClass
     public void initializeBrowser()
     {
         System.setProperty("chromedriver.web.driver",System.getProperty("user.dir")+"/Browsers/chromedriver");
@@ -18,7 +21,7 @@ public class baseClass {
     }
 
 
-
+    @AfterClass
     public void tearDown()
     {
         driver.quit();
