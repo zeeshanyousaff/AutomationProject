@@ -17,11 +17,10 @@ public class TC_ProductSelection extends baseClass {
     @Test
     public void ProductSelection() {
 
-        driver.get("https://www.amazon.in/");
-        //Utilities object initialization
+        driver.get(rc.getURL());
+
         Utilities ul = new Utilities(driver);
-        String ExpectedPageTitle = "Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in";
-        ul.VerifyPageTitle(driver.getTitle(), ExpectedPageTitle);
+        ul.VerifyPageTitle(driver.getTitle(), rc.HomePageTitle());
 
         homePage hp = new homePage(driver);
         hp.getHamburgerMenu().click();
@@ -34,7 +33,7 @@ public class TC_ProductSelection extends baseClass {
 
         ul.clickOnElement(plp.getsortByDropdown());
         ul.clickOnElement(plp.gethighToLowPrice());
-        plp.getProduct(1);
+        plp.getProduct(driver, 1);
 
         ul.switchtoNewWindow(driver);
 

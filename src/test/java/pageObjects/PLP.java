@@ -38,8 +38,11 @@ public class PLP {
         return highToLowPrice;
     }
 
-    public void getProduct(int productIndex) {
+    public void getProduct(WebDriver driver,int productIndex) {
 
+        WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(25));
+        wait.until(ExpectedConditions.visibilityOf(sortedProducts.get(productIndex)));
+        System.out.println(sortedProducts.size());
         sortedProducts.get(productIndex).click();
     }
 
