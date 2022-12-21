@@ -4,7 +4,7 @@
     <test verbose="2" preserve-order="true" name="/Users/zeeshan/ClipboardAssessment">
     
         <classes>
-        <class name="testCases.TC_Amazon_ProductSelection"/>
+        <class name="testCases.TC_ProductSelection"/>
         </classes>
 
     </test>

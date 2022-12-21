@@ -1,17 +1,21 @@
 package pageObjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class PLP {
     WebDriver driver;
 
-    public PLP(WebDriver driver)
-    {
+    public PLP(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
@@ -26,18 +30,18 @@ public class PLP {
     List<WebElement> sortedProducts;
 
     //getter methods for the webelements of PLP page.
-    public WebElement getsortByDropdown()
-    {
+    public WebElement getsortByDropdown() {
         return sortByDropdown;
     }
 
-    public WebElement gethighToLowPrice()
-    {
+    public WebElement gethighToLowPrice() {
         return highToLowPrice;
     }
 
-    public List<WebElement> getSortedProducts()
-    {
-        return sortedProducts;
+    public void getProduct(int productIndex) {
+
+        sortedProducts.get(productIndex).click();
     }
+
 }
+
