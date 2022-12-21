@@ -1,5 +1,6 @@
 package testCases;
 
+import com.amazon.Utilities.ReadConfig;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
@@ -10,6 +11,8 @@ import java.util.concurrent.TimeUnit;
 public class baseClass {
     public static WebDriver driver;
 
+    ReadConfig rc=new ReadConfig();
+
     @BeforeClass
     public void initializeBrowser() {
         System.setProperty("chromedriver.web.driver", System.getProperty("user.dir") + "/Browsers/chromedriver");
@@ -18,7 +21,7 @@ public class baseClass {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
 
-    @AfterClass
+   // @AfterClass
     public void tearDown() {
         driver.quit();
     }
