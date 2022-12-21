@@ -8,25 +8,19 @@ import org.testng.annotations.BeforeClass;
 import java.util.concurrent.TimeUnit;
 
 public class baseClass {
-
-
     public static WebDriver driver;
 
     @BeforeClass
-    public void initializeBrowser()
-    {
-        System.setProperty("chromedriver.web.driver",System.getProperty("user.dir")+"/Browsers/chromedriver");
-         driver=new ChromeDriver();
-         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+    public void initializeBrowser() {
+        System.setProperty("chromedriver.web.driver", System.getProperty("user.dir") + "/Browsers/chromedriver");
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
-
 
     @AfterClass
-    public void tearDown()
-    {
+    public void tearDown() {
         driver.quit();
     }
-
-
 
 }

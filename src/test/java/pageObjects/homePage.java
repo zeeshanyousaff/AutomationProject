@@ -10,10 +10,9 @@ public class homePage {
 
     WebDriver driver;
 
-    public homePage(WebDriver driver)
-    {
-        this.driver=driver;
-        PageFactory.initElements(driver,this);
+    public homePage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(css = "#nav-hamburger-menu")
@@ -28,19 +27,17 @@ public class homePage {
 
 
     //getter methods for the webelements of homePage
-    public WebElement getHamburgerMenu()
-    {
+    public WebElement getHamburgerMenu() {
         return navMenu;
     }
 
-    public WebElement getTVAppliancesCategory()
-    {
+    public WebElement getTVAppliancesCategory() {
         return TV_Appliances_Category;
     }
 
-    public WebElement getTelevisionCategory()
-    {
-        return televisionCategory;
+    public PLP getTelevisionCategory() {
+         televisionCategory.click();
+         return new PLP(driver);
     }
 
 
