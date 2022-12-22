@@ -27,7 +27,7 @@ public class ReadConfig {
       return s;
     }
 
-    public String HomePageTitle()
+    public String getHomePageTitle()
     {
         String t=prop.getProperty("HomePageTitle");
         return t;
