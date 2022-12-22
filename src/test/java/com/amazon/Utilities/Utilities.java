@@ -2,8 +2,10 @@ package com.amazon.Utilities;
 
 import org.openqa.selenium.*;
 import org.testng.Assert;
+
 import java.util.Iterator;
 import java.util.Set;
+
 import static org.openqa.selenium.support.locators.RelativeLocator.with;
 
 public class Utilities {
@@ -57,7 +59,7 @@ public class Utilities {
         }
     }
 
-    public void VerifyPageTitle(String expected) {
+    public void verifyPageTitle(String expected) {
         try {
             Assert.assertEquals(driver.getTitle(), expected);
         } catch (Exception e) {
@@ -77,7 +79,7 @@ public class Utilities {
         driver.get(s);
     }
 
-    public void EnterValue(WebElement el, String s) {
+    public void enterValue(WebElement el, String s) {
         try {
             el.sendKeys(s);
         } catch (Exception e) {
@@ -86,7 +88,4 @@ public class Utilities {
 
     }
 
-    //create verify the text method
-    //create verify the visibility method
-    //drop down value select
 }
