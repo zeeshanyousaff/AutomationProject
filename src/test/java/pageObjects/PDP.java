@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
@@ -24,16 +23,16 @@ public class PDP {
 
     //getter methods for PDP elements
     public WebElement getAboutThisItemTitle() {
+        Assert.assertTrue(aboutThisItemTitle.isDisplayed());
         return aboutThisItemTitle;
     }
 
     public List<WebElement> getAboutThisItemDetails() {
+        Assert.assertNotNull(aboutThisItemDetails);
         return aboutThisItemDetails;
     }
 
-
-    public void VerifyAndPrintAboutThisItemsection()
-    {
+    public void VerifyAndPrintAboutThisItemsection() {
 
         if (aboutThisItemTitle.isDisplayed()) {
 
@@ -42,12 +41,9 @@ public class PDP {
             for (int i = 0; i < aboutThisItemDetails.size(); i++) {
                 System.out.println(aboutThisItemDetails.get(i).getText());
             }
-        } else
-        {
+        } else {
             Assert.assertTrue(false);
         }
-
-
 
     }
 
