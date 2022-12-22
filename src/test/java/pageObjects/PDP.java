@@ -1,5 +1,6 @@
 package pageObjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,33 +14,29 @@ public class PDP {
 
     public PDP(WebDriver driver) {
         this.driver = driver;
-        PageFactory.initElements(driver, this);
     }
 
-    @FindBy(css = "#feature-bullets>h1")
-    WebElement aboutThisItemTitle;
-    @FindBy(css = ("#feature-bullets>ul>li"))   //this locator returns all the <li> elements containing bullet point info.
-    List<WebElement> aboutThisItemDetails;
+    By aboutThisItemTitle = By.cssSelector("#feature-bullets>h1");
+    By aboutThisItemDetails = By.cssSelector("#feature-bullets>ul>li");
 
-    //getter methods for PDP elements
     public WebElement getAboutThisItemTitle() {
-        Assert.assertTrue(aboutThisItemTitle.isDisplayed());
-        return aboutThisItemTitle;
+        Assert.assertTrue(driver.findElement(aboutThisItemTitle).isDisplayed());
+        return driver.findElement(aboutThisItemTitle);
     }
 
     public List<WebElement> getAboutThisItemDetails() {
-        Assert.assertNotNull(aboutThisItemDetails);
-        return aboutThisItemDetails;
+        Assert.assertNotNull(driver.findElements(aboutThisItemDetails));
+        return driver.findElements(aboutThisItemDetails);
     }
 
     public void VerifyAndPrintAboutThisItemsection() {
 
-        if (aboutThisItemTitle.isDisplayed()) {
+        if (driver.findElement(aboutThisItemTitle).isDisplayed()) {
 
             Assert.assertTrue(true);
 
-            for (int i = 0; i < aboutThisItemDetails.size(); i++) {
-                System.out.println(aboutThisItemDetails.get(i).getText());
+            for (int i = 0; i < driver.findElements(aboutThisItemDetails).size(); i++) {
+                System.out.println(driver.findElements(aboutThisItemDetails).get(i).getText());
             }
         } else {
             Assert.assertTrue(false);

@@ -10,7 +10,7 @@ import pageObjects.homePage;
 public class TC_ProductSelection extends baseClass {
 
 
-    @Test
+    @Test(invocationCount = 5)
     public void ProductSelection() {
 
         Utilities ul = new Utilities(driver);
@@ -18,7 +18,7 @@ public class TC_ProductSelection extends baseClass {
         PDP pdp = new PDP(driver);
 
         ul.navigateURL(URL);
-        ul.VerifyPageTitle(HomePageTitle);
+        ul.verifyPageTitle(HomePageTitle);
         ul.clickOnElement(hp.getHamburgerMenu());
         ul.scrollIntoViewAndClick(hp.getTVAppliancesCategory());
         PLP plp = hp.getTelevisionCategory();

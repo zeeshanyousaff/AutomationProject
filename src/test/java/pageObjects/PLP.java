@@ -1,5 +1,6 @@
 package pageObjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,36 +17,33 @@ public class PLP {
 
     public PLP(WebDriver driver) {
         this.driver = driver;
-        PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//span[@id='a-autoid-0-announce']")
-    WebElement sortByDropdown;
+    By sortByDropdown = By.xpath("//span[@id='a-autoid-0-announce']");
+    By highToLowPrice = By.cssSelector("#s-result-sort-select_2");
+    By sortedProducts = By.xpath("//div/img[@class='s-image']");
 
-    @FindBy(css = ("#s-result-sort-select_2"))
-    WebElement highToLowPrice;
-
-    @FindBy(xpath = " //div/img[@class='s-image']")
-    List<WebElement> sortedProducts;
-
-    //getter methods for the webelements of PLP page.
     public WebElement getsortByDropdown() {
-        Assert.assertTrue(sortByDropdown.isDisplayed());
-        return sortByDropdown;
+        Assert.assertTrue(driver.findElement(sortByDropdown).isDisplayed());
+        return driver.findElement(sortByDropdown);
     }
 
     public WebElement gethighToLowPrice() {
-        Assert.assertTrue(highToLowPrice.isDisplayed());
-        Assert.assertEquals(highToLowPrice.getText(), "Price: High to Low");
-        return highToLowPrice;
+        Assert.assertTrue(driver.findElement(highToLowPrice).isDisplayed());
+        Assert.assertEquals(driver.findElement(highToLowPrice).getText(), "Price: High to Low");
+        return driver.findElement(highToLowPrice);
     }
 
     public void getProduct(int productIndex) {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
-        wait.until(ExpectedConditions.elementToBeClickable(sortedProducts.get(productIndex)));
-        Assert.assertNotNull(sortedProducts);
-        sortedProducts.get(productIndex).click();
+        wait.until(ExpectedConditions.elementToBeClickable(driver.findElements(sortedProducts).get(productIndex)));
+
+        if (!driver.findElements(sortedProducts).isEmpty()) {
+            driver.findElements(sortedProducts).get(productIndex).click();
+        } else {
+            Assert.assertTrue(false, "The product list is empty");
+        }
     }
 
 }

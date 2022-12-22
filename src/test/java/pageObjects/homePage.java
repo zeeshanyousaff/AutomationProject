@@ -1,47 +1,50 @@
 package pageObjects;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.*;
+
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-public class homePage {
+import java.time.Duration;
 
+public class homePage {
     WebDriver driver;
 
     public homePage(WebDriver driver) {
         this.driver = driver;
-        PageFactory.initElements(driver, this);
     }
 
-    @FindBy(css = "#nav-hamburger-menu")
-    WebElement navMenu;
+    By navMenu = By.cssSelector("#nav-hamburger-menu");
+    By TV_Appliances_Category = By.xpath("//a[@class='hmenu-item'][normalize-space()='TV, Appliances, Electronics']");
+    By televisionCategory = By.xpath("//a[@class='hmenu-item'][normalize-space()='Televisions']");
 
-    @FindBy(xpath = ("//a[@class='hmenu-item'][normalize-space()='TV, Appliances, Electronics']"))
-    WebElement TV_Appliances_Category;
 
-    @FindBy(xpath = "//a[@class='hmenu-item'][normalize-space()='Televisions']")
-    WebElement televisionCategory;
-
-    //getter methods for the webelements of homePage
     public WebElement getHamburgerMenu() {
-        Assert.assertTrue(navMenu.isDisplayed());
-        return navMenu;
+        Assert.assertTrue(driver.findElement(navMenu).isDisplayed());
+        return driver.findElement(navMenu);
     }
 
     public WebElement getTVAppliancesCategory() {
 
-        Assert.assertTrue(TV_Appliances_Category.isDisplayed());
-        Assert.assertEquals(TV_Appliances_Category.getText(), "TV, Appliances, Electronics");
-        return TV_Appliances_Category;
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
+        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(TV_Appliances_Category)));
+
+        Assert.assertTrue(driver.findElement(TV_Appliances_Category).isDisplayed());
+        Assert.assertEquals(driver.findElement(TV_Appliances_Category).getText(), "TV, Appliances, Electronics");
+        return driver.findElement(TV_Appliances_Category);
     }
 
     public PLP getTelevisionCategory() {
-        Assert.assertTrue(televisionCategory.isDisplayed());
-        Assert.assertEquals(televisionCategory.getText(), "Televisions");
-        televisionCategory.click();
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
+        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(televisionCategory)));
+
+        Assert.assertTrue(driver.findElement(televisionCategory).isDisplayed());
+        Assert.assertEquals(driver.findElement(televisionCategory).getText(), "Televisions");
+        driver.findElement(televisionCategory).click();
         return new PLP(driver);
     }
+
 
 }
