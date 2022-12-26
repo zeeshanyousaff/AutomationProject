@@ -3,7 +3,7 @@ This is a java selenium framework which is using testng, maven, selenium, java t
 
 ### _Project Features_
 
-- Option to auto manage drives using WebDriverManager.
+- Option to auto manage driver using WebDriverManager.
 - Read data from Properties file.
 
 ### _Project Components_
@@ -33,5 +33,5 @@ Below are the component details of the framework:
 1. Make sure [maven](https://maven.apache.org/install.html) is installed on your machine and MAVEN_HOME variable is set.
 2. Java is installed on your machine and JAVA_HOME variable is set. 
 3. Google Chrome is installed on your machine.
-4. Execute project by following command in terminal/command line: mvn test -PMain
+4. Execute project by following command in terminal/command line: **mvn test -PMain**
 5. Or open the project in IDE(IntelliJ idea) and run testng.xml file.
