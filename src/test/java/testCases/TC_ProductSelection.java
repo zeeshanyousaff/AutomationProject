@@ -10,7 +10,7 @@ import pageObjects.homePage;
 public class TC_ProductSelection extends baseClass {
 
 
-    @Test(invocationCount = 5)
+    @Test(invocationCount = 1)
     public void ProductSelection() {
 
         Utilities ul = new Utilities(driver);
