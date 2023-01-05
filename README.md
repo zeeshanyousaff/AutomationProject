@@ -1,4 +1,4 @@
-# _ClipboardAssessment_
+# _AutomationProject_
 This is a java selenium framework which is using testng, maven, selenium, java to achieve the task.
 
 ### _Project Features_
