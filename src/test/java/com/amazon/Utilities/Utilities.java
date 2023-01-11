@@ -69,6 +69,8 @@ public class Utilities {
 
     public void clickOnElement(WebElement el) {
         try {
+            JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+            jsExecutor.executeScript("arguments[0].style.border='2px solid red'", el);
             el.click();
         } catch (Exception e) {
             e.printStackTrace();

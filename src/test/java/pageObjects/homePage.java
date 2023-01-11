@@ -16,8 +16,8 @@ public class homePage {
     }
 
     By navMenu = By.cssSelector("#nav-hamburger-menu");
-    By TV_Appliances_Category = By.xpath("//a[@class='hmenu-item'][normalize-space()='TV, Appliances, Electronics']");
-    By televisionCategory = By.xpath("//a[@class='hmenu-item'][normalize-space()='Televisions']");
+    By TV_Appliances_Category = By.xpath("//div[text()='TV, Appliances, Electronics']/parent::a");
+    By televisionCategory = By.xpath("//a[text()='Televisions']");
 
 
     public WebElement getHamburgerMenu() {
