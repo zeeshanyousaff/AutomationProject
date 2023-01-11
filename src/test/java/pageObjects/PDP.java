@@ -1,6 +1,7 @@
 package pageObjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,11 +22,14 @@ public class PDP {
 
     public WebElement getAboutThisItemTitle() {
         Assert.assertTrue(driver.findElement(aboutThisItemTitle).isDisplayed());
+
         return driver.findElement(aboutThisItemTitle);
     }
 
     public List<WebElement> getAboutThisItemDetails() {
         Assert.assertNotNull(driver.findElements(aboutThisItemDetails));
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].style.border='2px solid red'", aboutThisItemDetails);
         return driver.findElements(aboutThisItemDetails);
     }
 
